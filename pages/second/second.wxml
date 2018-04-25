@@ -1,0 +1,23 @@
+
+<view class="second_wrap">
+  <view class="second_header">商品详情</view>
+  <view class="second_content">
+  
+    <swiper indicator-dots="true"
+  autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" width="750" height="750"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="second_content_detail">
+      <view class="second_content_detail_title">
+        <view>{{second_content_detail_title}}</view>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>
