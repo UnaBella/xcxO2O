@@ -8,3 +8,19 @@ page{
 .fr{
   float: right;
 }
+.mt20{
+  margin-top: 20rpx;
+}
+.ml05{
+  margin-left: 5rpx;
+}
+.ml25{
+  margin-left: 25rpx;
+}
+.mr25{
+  margin-right: 25rpx;
+}
+.clearfix{overflow:hidden;_zoom:1;}
+.none {
+  display: none;
+}

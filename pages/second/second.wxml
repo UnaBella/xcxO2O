@@ -12,11 +12,43 @@
       </block>
     </swiper>
     <view class="second_content_detail">
-      <view class="second_content_detail_title">
-        <view>{{second_content_detail_title}}</view>
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <view class="second_content_detail_title">{{second_content_detail_title}}</view>
+      <view class="second_content_detail_expressage mt20">快递: 包邮</view>
+      <view class=" mt20 clearfix">
+        <view class='fl second_content_detail_num'>数量:</view>
+        <view class='fr clearfix'>
+          <view class="minus-btn fl mr25" >-</view>
+          <view class='fl num'>2</view>
+          <view class="plus-btn fl ml25" >+</view>
+        </view>
       </view>
+      
+      <view class="mt20">
+        <view class="second_content_detail_way">
+          <radio-group bindchange="radioChange">
+          <label class="radio_label mr25" wx:for="{{radioItems}}" wx:key="{{item.value}}">
+              <radio value="{{item.value}}" checked="item.checked"/>
+              <text class="text">{{item.name}}</text>
+          </label>
+        </radio-group>
+        </view>
+      </view>
+      <view class="mt20 expressage {{expressageType==1?'none':''}}">
+        <view class="mt20 clearfix inputName">
+          <label class='fl'>
+            <i class="fl">真实姓名</i>
+            <em class="fl ml05">*</em>
+          </label>
+          <input class="fl ml25 text1" name="input" placeholder="清关必备，请输入真实姓名" />
+        </view>
+      </view>
+      <view class="mt20">
+        <button type="primary">立即购买</button>
+      </view>
+       </form>
     </view>
-
+ 
 
 
   </view>

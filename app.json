@@ -1,7 +1,9 @@
 {
   "pages":[
     "pages/index/index",
-   "pages/second/second",
+    "pages/second/second",
+    
+   "pages/myOrder/myOrder",
     "pages/logs/logs",
     "pages/show/show"
   ],
@@ -25,7 +27,7 @@
       {
         "selectedIconPath": "static/img/我的订单-触发@3x.png",
         "iconPath": "static/img/我的订单-未触发@3x.png",
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/myOrder/myOrder",
         "text": "我的订单"
       }
     ]

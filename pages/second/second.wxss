@@ -23,3 +23,46 @@
   width: 750rpx;
   height: 740rpx;
 }
+.second_content_detail{
+  margin-top: 10rpx;
+  padding: 20rpx 40rpx 40rpx;
+  box-shadow: 0px -4px 4px #f6f1f1;
+}
+.second_content_detail_title{
+  color:#646464;
+  font-size: 35rpx;
+}
+.second_content_detail_expressage,.second_content_detail_num,.num{
+  color:#b9b9b9;
+  font-size: 24rpx;
+}
+.minus-btn,.plus-btn{
+  font-size: 20rpx;
+   padding: 0rpx 10rpx 4rpx;
+   color:#b9b9b9;
+   background: #d8d8d8;
+   border-radius: 20rpx; 
+   position: auto;
+}
+.second_content_detail radio{ transform:scale(.6)  }
+
+.second_content_detail .text {
+  color:#b9b9b9;
+  font-size: 24rpx;
+}
+.second_content_detail .expressage .inputName label{
+  font-size: 33rpx;
+  width: 160rpx;
+}
+.second_content_detail .expressage .inputName em{
+  color: red;
+}
+.second_content_detail .expressage .inputName input{
+  width: 480rpx;
+  font-size: 24rpx; 
+}
+
+.second_content_detail .expressage .inputName input::-webkit-input-placeholder{
+  color:#b9b9b9; 
+  
+}
