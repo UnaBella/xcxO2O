@@ -38,7 +38,7 @@
 }
 
 .second_content_detail .inputNum input{
-  width: 25rpx;
+  width: 26rpx;
 }
 .minus-btn,.plus-btn{
   font-size: 20rpx;
@@ -47,7 +47,7 @@
    background: #d8d8d8;
    border-radius: 20rpx; 
    position: auto;
-   margin-top:10rpx;
+   margin-top:8rpx;
 
 }
 .second_content_detail radio{ transform:scale(.6)  }
