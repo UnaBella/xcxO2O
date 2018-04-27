@@ -34,9 +34,9 @@ Page({
       // });
       console.log(res);
     })
-    // wx.navigateTo({
-    //   url: '../second/second'
-    // }),
+    wx.navigateTo({
+      url: '../second/second'
+    }),
     console.log(111);
     // wx.scanCode({
     //   onlyFromCamera: true,

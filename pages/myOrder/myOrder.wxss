@@ -1,7 +1,16 @@
 .order_wrap{
   width: 100%;
   height: 100%;
-  background-color: #efeff4;
+}
+.order_header{
+  height: 60rpx;
+  width: 750rpx;
+  border-bottom: 1px solid #cbcbcb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #999;
 }
 .order_list{
   width: 100%;
@@ -12,13 +21,14 @@
   /* background: red; */
 }
 .order_list_li_number{
-  padding: 0 0 3% 0;
-  font-size: 32rpx;
-  border-bottom: 1rpx solid #9f9f9f; 
+  padding: 0 0 2% 0;
+  font-size: 26rpx;
+  color: #a6a6a6;
+  border-bottom: 1rpx solid #f2f2f2; 
 }
 .order_list_li_mes{
   overflow: hidden;
-  padding: 6% 0 0 0;
+  padding: 4% 0 0 0;
 }
 .order_list_li_mes_img{
   width: 17%;
@@ -35,11 +45,12 @@
   margin-left: 4%;
 }
 .order_list_li_mes_time{
-  font-size: 22rpx;
+  font-size: 20rpx;
+  color: #cdcdcd;
   padding: 0 0 2% 0;
 }
 .order_list_li_mes_title{
-  font-size: 32rpx;
+  font-size: 26rpx;
 }
 .order_list_li_mes_operat{
   padding: 2% 0;
@@ -47,5 +58,9 @@
   text-align: right;
 }
 .order_list_li_mes_operat button{
-  margin-left: 4%
+  margin-left: 4%;
+  color: #7b7b7b;
+  font-size: 20rpx;
+  width: 140rpx;
+  line-height:42rpx;
 }

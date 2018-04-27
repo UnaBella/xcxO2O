@@ -1,9 +1,12 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/second/second",
     
-   "pages/myOrder/myOrder",
+    "pages/myOrder/myOrder",
+    "pages/second/second",
+    "pages/index/index",
+    
+    
+   
     "pages/logs/logs",
     "pages/show/show"
   ],

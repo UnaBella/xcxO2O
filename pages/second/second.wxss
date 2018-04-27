@@ -36,6 +36,10 @@
   color:#b9b9b9;
   font-size: 24rpx;
 }
+
+.second_content_detail .inputNum input{
+  width: 25rpx;
+}
 .minus-btn,.plus-btn{
   font-size: 20rpx;
    padding: 0rpx 10rpx 4rpx;
@@ -43,6 +47,8 @@
    background: #d8d8d8;
    border-radius: 20rpx; 
    position: auto;
+   margin-top:10rpx;
+
 }
 .second_content_detail radio{ transform:scale(.6)  }
 
@@ -50,19 +56,28 @@
   color:#b9b9b9;
   font-size: 24rpx;
 }
-.second_content_detail .expressage .inputName label{
+.second_content_detail .expressage .inputName label,
+.second_content_detail .expressage .inputIdCard label,
+.second_content_detail .expressage .inputPerson label,
+.second_content_detail .expressage .inputPhone label,
+.second_content_detail .expressage .inputAddress label{
   font-size: 33rpx;
   width: 160rpx;
 }
-.second_content_detail .expressage .inputName em{
+.second_content_detail .expressage .inputName em,
+.second_content_detail .expressage .inputIdCard em,
+.second_content_detail .expressage .inputPerson em,
+.second_content_detail .expressage .inputPhone em,
+.second_content_detail .expressage .inputAddress em{
   color: red;
 }
-.second_content_detail .expressage .inputName input{
+.second_content_detail .expressage .inputName input,
+.second_content_detail .expressage .inputIdCard input,
+.second_content_detail .expressage .inputPerson input,
+.second_content_detail .expressage .inputPhone input,
+.second_content_detail .expressage .inputAddress input{
   width: 480rpx;
   font-size: 24rpx; 
+  color:#b9b9b9; 
 }
 
-.second_content_detail .expressage .inputName input::-webkit-input-placeholder{
-  color:#b9b9b9; 
-  
-}

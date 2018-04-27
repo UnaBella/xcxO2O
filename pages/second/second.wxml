@@ -15,18 +15,19 @@
     <form catchsubmit="formSubmit" catchreset="formReset">
       <view class="second_content_detail_title">{{second_content_detail_title}}</view>
       <view class="second_content_detail_expressage mt20">快递: 包邮</view>
-      <view class=" mt20 clearfix">
+      <view class=" mt20 clearfix ">
         <view class='fl second_content_detail_num'>数量:</view>
-        <view class='fr clearfix'>
-          <view class="minus-btn fl mr25" >-</view>
-          <view class='fl num'>2</view>
-          <view class="plus-btn fl ml25" >+</view>
+        <view class='fr clearfix inputNum'>
+          <view class="minus-btn fl mr25" bindtap='minus'>-</view>
+          <!-- <view class='fl num' name="radio2">2</view> -->
+          <input class="fl num " name="inputNum" value='{{bugNum}}' disabled />
+          <view class="plus-btn fl ml25" bindtap='plus'>+</view>
         </view>
       </view>
       
       <view class="mt20">
         <view class="second_content_detail_way">
-          <radio-group bindchange="radioChange">
+          <radio-group bindchange="radioChange" name="radio">
           <label class="radio_label mr25" wx:for="{{radioItems}}" wx:key="{{item.value}}">
               <radio value="{{item.value}}" checked="item.checked"/>
               <text class="text">{{item.name}}</text>
@@ -40,11 +41,50 @@
             <i class="fl">真实姓名</i>
             <em class="fl ml05">*</em>
           </label>
-          <input class="fl ml25 text1" name="input" placeholder="清关必备，请输入真实姓名" />
+          <input class="fl ml25 text1" name="inputName" 
+          placeholder-style="color:#b9b9b9"
+          placeholder="清关必备，请输入真实姓名" />
         </view>
+        <view class="mt20 clearfix inputIdCard">
+          <label class='fl'>
+            <i class="fl">身份证</i>
+            <em class="fl ml05">*</em>
+          </label>
+          <input class="fl ml25 text1" name="inputIdCard" type="idcard"
+          placeholder-style="color:#b9b9b9"
+          placeholder="请输入身份证号" />
+        </view>
+        <view class="mt20 clearfix inputPerson">
+          <label class='fl'>
+            <i class="fl">收货人</i>
+            <em class="fl ml05">*</em>
+          </label>
+          <input class="fl ml25 text1" name="inputPerson" 
+          placeholder-style="color:#b9b9b9"
+          placeholder="请输入收货人" />
+        </view>
+        <view class="mt20 clearfix inputPhone">
+          <label class='fl'>
+            <i class="fl">电话</i>
+            <em class="fl ml05">*</em>
+          </label>
+          <input class="fl ml25 text1" name="inputPhone" 
+          placeholder-style="color:#b9b9b9"
+          placeholder="请输入电话" />
+        </view>
+        <view class="mt20 clearfix inputAddress">
+          <label class='fl'>
+            <i class="fl">地址</i>
+            <em class="fl ml05">*</em>
+          </label>
+          <input class="fl ml25 text1" name="inputAddress" 
+          placeholder-style="color:#b9b9b9"
+          placeholder="请输入地址" />
+        </view>
+        
       </view>
       <view class="mt20">
-        <button type="primary">立即购买</button>
+        <button type="primary" formType="submit">立即购买</button>
       </view>
        </form>
     </view>
