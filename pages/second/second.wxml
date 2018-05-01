@@ -29,7 +29,7 @@
         <view class="second_content_detail_way">
           <radio-group bindchange="radioChange" name="radio">
           <label class="radio_label mr25" wx:for="{{radioItems}}" wx:key="{{item.value}}">
-              <radio value="{{item.value}}" checked="item.checked"/>
+              <radio value="{{item.value}}" checked="{{item.checked}}"/>
               <text class="text">{{item.name}}</text>
           </label>
         </radio-group>
@@ -54,12 +54,15 @@
           placeholder-style="color:#b9b9b9"
           placeholder="请输入身份证号" />
         </view>
+        <view class="mt20">
+          <button type="primary" bindtap="getAddress">获取地址</button>
+        </view>
         <view class="mt20 clearfix inputPerson">
           <label class='fl'>
             <i class="fl">收货人</i>
             <em class="fl ml05">*</em>
           </label>
-          <input class="fl ml25 text1" name="inputPerson" 
+          <input class="fl ml25 text1" name="inputPerson" value="{{inputPerson}}"
           placeholder-style="color:#b9b9b9"
           placeholder="请输入收货人" />
         </view>
@@ -68,7 +71,7 @@
             <i class="fl">电话</i>
             <em class="fl ml05">*</em>
           </label>
-          <input class="fl ml25 text1" name="inputPhone" 
+          <input class="fl ml25 text1" name="inputPhone"  value="{{inputPhone}}"
           placeholder-style="color:#b9b9b9"
           placeholder="请输入电话" />
         </view>
@@ -77,7 +80,7 @@
             <i class="fl">地址</i>
             <em class="fl ml05">*</em>
           </label>
-          <input class="fl ml25 text1" name="inputAddress" 
+          <input class="fl ml25 text1" name="inputAddress"  value="{{inputAddress}}"
           placeholder-style="color:#b9b9b9"
           placeholder="请输入地址" />
         </view>
