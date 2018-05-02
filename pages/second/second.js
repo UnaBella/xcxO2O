@@ -3,7 +3,7 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
-    bugNum:2,
+    bugNum:1,
     imgUrls: [
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
@@ -14,7 +14,11 @@ Page({
       { value: '1', name: '现场取货', checked: 'true'},
       { value: '2', name: '快递收货' },
     ],
-    expressageType: '',
+    expressageType: '1',
+
+    inputPerson: '',
+    inputAddress: '',
+    inputPhone: '',
   },
   minus: function(){
     if (this.data.bugNum > 1) {
@@ -60,7 +64,39 @@ Page({
     wx.navigateBack({
       url: '../index/index'
     })
-  }
- 
+  },
+  getAddress: function(){
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.address']) {
+          wx.authorize({
+            scope: 'scope.address',
+            success() {
+              wx.chooseAddress({
+                success: function (res) {
+                  that.setData({
+                    inputPerson: res.userName,
+                    inputAddress: res.provinceName + res.cityName + res.countyName + res.detailInfo,
+                    inputPhone: res.telNumber,
+                  });
+                }
+              })
+            }
+          })
+        } else {
+          wx.chooseAddress({
+            success: function (res) {
+              that.setData({
+                inputPerson: res.userName,
+                inputAddress: res.provinceName + res.cityName + res.countyName + res.detailInfo,
+                inputPhone: res.telNumber,
+              });
+            }
+          })
+        }
+      }
+    })
+  },
  
 })
