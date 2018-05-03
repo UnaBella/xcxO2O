@@ -3,14 +3,14 @@
   <view class="order_list">
 
     <view class="order_list_li" wx:for="{{orderList}}">
-      <view class="order_list_li_number">订单号: {{item.number}}</view>
+      <view class="order_list_li_number">订单号: {{item.billId}}</view>
       <view class="order_list_li_mes">
         <view class="order_list_li_mes_img">
-          <image src='{{item.img}}'></image>
+          <image src='{{item.imgUrl}}'></image>
         </view>
         <view class="order_list_li_mes_text">
-          <view class='order_list_li_mes_time'>{{item.time}}</view>
-          <view class='order_list_li_mes_title'>{{item.title}}</view>
+          <view class='order_list_li_mes_time'>{{item.createTime}}</view>
+          <view class='order_list_li_mes_title'>{{item.product}}</view>
           <!-- <view class='order_list_li_mes_operat'>
             <button size='mini' class='btnmini'>分享</button>
             <button size='mini' class='btnmini'>取消订单</button>

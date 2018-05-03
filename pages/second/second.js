@@ -79,7 +79,6 @@ Page({
   toSuccessBuy: function (needs){
     new Promise(resolve => {
       app.getLogin(resolve);
-      
     }).then(() => {
       var data = {
         product: this.data.second_content_detail_title,
@@ -88,12 +87,9 @@ Page({
         token: wx.getStorageSync('token'),
         ...needs
       }
-      console.log('needs',data)
+      // console.log('needs',data)
       this.testPayment(data);
     })
-   
-    
-    
   },
   getAddress: function(){
     var that = this;
@@ -130,16 +126,22 @@ Page({
   },
   
   testPayment: function (data) {
+    var that = this;
     app.Ajax(
       'Payment',
       'POST',
       'Payment',
        data ,
       function (json) {
-        console.log(json);
+        // console.log(json);
         if (json.success) {
           //wx.setStorageSync('token', json.data.sessionId);
           console.log(json.data);
+          // getNowFormatDate();
+          console.log(that.getNowFormatDate());
+          // var scanTime = wx.getStorageSync('scanTime') || []
+          // scanTime.unshift(that.getNowFormatDate())
+          // wx.setStorageSync('scanTime', scanTime)
           wx.requestPayment({
             'timeStamp': json.data.timeStamp,
             'nonceStr': json.data.nonceStr,
@@ -166,6 +168,23 @@ Page({
 
       }
     );
+  },
+  getNowFormatDate:function() {
+    var date = new Date();
+    var seperator1 = ":";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if(month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+    + " " + date.getHours() + seperator2 + date.getMinutes()
+    + seperator2 + date.getSeconds();
+    return currentdate;
   }
  
 })
