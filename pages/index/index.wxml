@@ -2,7 +2,7 @@
   <view class="index_wrap">
     <view class="header_card">
       <view class="header_card_bgc">
-        <view class="header_card_image" bindtap="toScan">
+        <view class="header_card_image" bindtap="toSweepOrder">
           <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/首页-扫码下单色块@3x.png' ></image>
         </view>
         <!-- <view class="header_card_click">

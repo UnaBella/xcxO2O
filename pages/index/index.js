@@ -21,35 +21,40 @@ Page({
       { number: '12333445566', date: '2018.5.15 15:40' }
     ]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../show/show'
-    })
-  },
-  
-  toScan: function (){
+
+  toSweepOrder: function (){
     wx.scanCode({
       success: (res) => {
-        wx.navigateTo({
-          url: '../second/second?code=' + res.result
-        })
+        
+   
+    app.Ajax(
+      'Goods',
+      'POST',
+      'GetGoods',
+      { barcode: res.result },
+      function (json) {
+        if (json.success) {
+          var ttt = json.data;
+          // console.log('ttt',ttt)
+          wx.navigateTo({
+            url: '../second/second?goodsMes=' + JSON.stringify(ttt)
+          })
+        } else {
+          console.log('请重新扫商品码');
+        }
+      }
+    );
+
+
+        
+        
       },
       fail: (res) => {
         console.log(res);
       }
     })
-    
-    // console.log(111);
-    // wx.scanCode({
-    //   onlyFromCamera: true,
-    //   success: (res) => {
-    //     console.log(res)
-    //   }
-    // })
+
   },
-
-
 
   onLoad: function (options) {
     var scene = decodeURIComponent(options.shop);
@@ -59,6 +64,5 @@ Page({
     }else{
       wx.setStorageSync('shop', scene);
     }
-  },
-  
+  }, 
 })

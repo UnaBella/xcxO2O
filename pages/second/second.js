@@ -24,39 +24,18 @@ Page({
     inputPhone: '',
   },
   onLoad: function(obj) {
-    var code = obj.code;
-    this.getGoods(code);
+    // console.log(obj)
+    // console.log(JSON.parse(obj.goodsMes))
+    var ttt = JSON.parse(obj.goodsMes);
+    this.setData({
+      second_content_detail_title: ttt.goodsname,
+      second_content_detail_price : ttt.price,
+      stock: ttt.stock,
+      id:ttt.id,
+      imgUrls : [ttt.slt]
+    })
   },
-  getGoods: function (code) {
-    var that = this;
-    app.Ajax(
-      'Goods',
-      'POST',
-      'GetGoods',
-      { barcode: code },
-      function (json) {
-        // console.log(json);
-        if (json.success) {
-          var ttt = json.data;
-          console.log('ttt',ttt)
-          that.setData({
-            second_content_detail_title: ttt.goodsname,
-            second_content_detail_price : ttt.price,
-            stock: ttt.stock,
-            id:ttt.id,
-            imgUrls : [ttt.slt]
-          })
-
-
-        } else {
-
-          // console.log(json.msg.code);
-          // console.log(json.msg.msg);
-        }
-
-      }
-    );
-  },
+  
   minus: function(e){
     if (this.data.bugNum > 1) {
       this.data.bugNum -= 1;
