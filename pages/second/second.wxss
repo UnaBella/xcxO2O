@@ -11,50 +11,53 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26rpx;
+  font-size: 30rpx;
   color: #999;
   
 }
 .second_content swiper{
   width: 750rpx;
-  height: 740rpx;
+  height: 640rpx;
 }
 .second_content swiper swiper-item image{
   width: 750rpx;
-  height: 740rpx;
+  height: 640rpx;
 }
 .second_content_detail{
   margin-top: 10rpx;
   padding: 20rpx 40rpx 40rpx;
   box-shadow: 0px -4px 4px #f6f1f1;
 }
-.second_content_detail_title{
+.second_content_detail_title,.second_content_detail_price{
   color:#646464;
   font-size: 35rpx;
 }
+.second_content_detail_price{
+  color: red;
+}
 .second_content_detail_expressage,.second_content_detail_num,.num{
   color:#b9b9b9;
-  font-size: 24rpx;
+  font-size: 30rpx;
 }
 
 .second_content_detail .inputNum input{
-  width: 26rpx;
+  width: 35rpx;
 }
 .minus-btn,.plus-btn{
-  font-size: 20rpx;
-   padding: 0rpx 10rpx 4rpx;
+  font-size: 30rpx;
+    padding: 0rpx 14rpx 4rpx; 
    color:#b9b9b9;
    background: #d8d8d8;
-   border-radius: 20rpx; 
+   border-radius: 26rpx; 
    position: auto;
-   margin-top:8rpx;
+   margin-top:3rpx;
 
 }
-.second_content_detail radio{ transform:scale(.6)  }
+/* .second_content_detail radio{ transform:scale(.6)  } */
 
 .second_content_detail .text {
   color:#b9b9b9;
-  font-size: 24rpx;
+  font-size: 30rpx;
 }
 .second_content_detail .expressage .inputName label,
 .second_content_detail .expressage .inputIdCard label,
@@ -77,7 +80,7 @@
 .second_content_detail .expressage .inputPhone input,
 .second_content_detail .expressage .inputAddress input{
   width: 480rpx;
-  font-size: 24rpx; 
+  font-size: 30rpx; 
   color:#b9b9b9; 
 }
 

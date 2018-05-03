@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="button-group" bindtap="scanCodeShop">
+    <button hover-class="none" type="primary" class="login-out" >点击扫码</button>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+page{
+  background-color:#ebebeb;
+}
+
+
+.button-group{
+  width: 345rpx;
+  height : 80rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  margin: 150rpx auto;
+}
+
+.invite-code{
+  margin-right: 20rpx;
+}
+
+.hover-red{
+  background-color: #5b5b5b;
+}
+
+.login-out{
+  height: 100%;
+  line-height: 80rpx;
+  font-size: 36rpx;
+}
+
+button[type="primary"]{
+  background-color: #ac162c;
+}

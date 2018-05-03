@@ -1,6 +1,6 @@
 
 <view class="second_wrap">
-  <view class="second_header">商品详情</view>
+  <!-- <view class="second_header">商品详情</view> -->
   <view class="second_content">
   
     <swiper indicator-dots="true"
@@ -14,7 +14,8 @@
     <view class="second_content_detail">
     <form catchsubmit="formSubmit" catchreset="formReset">
       <view class="second_content_detail_title">{{second_content_detail_title}}</view>
-      <view class="second_content_detail_expressage mt20">快递: 包邮</view>
+      <view class="second_content_detail_price mt20">{{second_content_detail_price}} 元</view>
+      
       <view class=" mt20 clearfix ">
         <view class='fl second_content_detail_num'>数量:</view>
         <view class='fr clearfix inputNum'>

@@ -1,19 +1,23 @@
 //app.js
 App({
   onLaunch: function () {
+
+
+
+    this.getLogin();
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-
-    var isDebug = true;//调试状态使用本地服务器，非调试状态使用远程服务器
+    // console.log(111)
+    var isDebug = false;//调试状态使用本地服务器，非调试状态使用远程服务器
     if (!isDebug) {
       //远程域名
       wx.setStorageSync('domainName', "https://wxapp.llwell.net/api/O2O/")
     }
     else {
       //本地测试域名
-      wx.setStorageSync('domainName', "http://localhost:5000/api/O2O/")
+      wx.setStorageSync('domainName', "http://172.16.10.11:5000/api/O2O/")
     }
     
     // // 获取用户信息
@@ -37,7 +41,7 @@ App({
     //   }
     // })
   },
-  getLogin: function(){
+  getLogin: function (resolve){
     // 登录
     wx.login({
       success: res => {
@@ -52,6 +56,9 @@ App({
             if (json.success) {
               wx.setStorageSync('token', json.data.sessionId);
               console.log(json.data.sessionId);
+              if (resolve){
+                resolve();
+              }
             } else {
               
               console.log(json.msg.code);
@@ -62,6 +69,7 @@ App({
         );
       }
     })
+
   },
   globalData: {
     userInfo: null

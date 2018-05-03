@@ -1,14 +1,15 @@
 {
   "pages":[
-    
-    "pages/myOrder/myOrder",
-    "pages/second/second",
+   "pages/noshop/noshop",
     "pages/index/index",
+    "pages/second/second",
+    "pages/myOrder/myOrder",
     
     
    
     "pages/logs/logs",
     "pages/show/show"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",

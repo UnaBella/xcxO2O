@@ -1,6 +1,6 @@
 //logs.js
 const util = require('../../utils/util.js')
-
+const app = getApp()
 Page({
   data: {
     bugNum:1,
@@ -10,6 +10,9 @@ Page({
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ],
     second_content_detail_title:'资生堂 UNO 吾诺 男士洗面奶',
+    second_content_detail_price:'10000.00',
+    id:'',
+    stock:'',
     radioItems: [
       { value: '1', name: '现场取货', checked: 'true'},
       { value: '2', name: '快递收货' },
@@ -20,7 +23,41 @@ Page({
     inputAddress: '',
     inputPhone: '',
   },
-  minus: function(){
+  onLoad: function(obj) {
+    var code = obj.code;
+    this.getGoods(code);
+  },
+  getGoods: function (code) {
+    var that = this;
+    app.Ajax(
+      'Goods',
+      'POST',
+      'GetGoods',
+      { barcode: code },
+      function (json) {
+        // console.log(json);
+        if (json.success) {
+          var ttt = json.data;
+          console.log('ttt',ttt)
+          that.setData({
+            second_content_detail_title: ttt.goodsname,
+            second_content_detail_price : ttt.price,
+            stock: ttt.stock,
+            id:ttt.id,
+            imgUrls : [ttt.slt]
+          })
+
+
+        } else {
+
+          // console.log(json.msg.code);
+          // console.log(json.msg.msg);
+        }
+
+      }
+    );
+  },
+  minus: function(e){
     if (this.data.bugNum > 1) {
       this.data.bugNum -= 1;
       this.setData({
@@ -50,9 +87,9 @@ Page({
       radioItems: items
     });
   },
-  formSubmit: function (e,aaa) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value, aaa)
-    this.toSuccessBuy();
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    this.toSuccessBuy(e.detail.value);
   },
   formReset: function (e) {
     console.log('form发生了reset事件，携带数据为：', e.detail.value)
@@ -60,10 +97,24 @@ Page({
       chosen: ''
     })
   },
-  toSuccessBuy: function(){
-    wx.navigateBack({
-      url: '../index/index'
+  toSuccessBuy: function (needs){
+    new Promise(resolve => {
+      app.getLogin(resolve);
+      
+    }).then(() => {
+      var data = {
+        product: this.data.second_content_detail_title,
+        goodsId: this.data.id,
+        shop: wx.getStorageSync('shop'),
+        token: wx.getStorageSync('token'),
+        ...needs
+      }
+      console.log('needs',data)
+      this.testPayment(data);
     })
+   
+    
+    
   },
   getAddress: function(){
     var that = this;
@@ -98,5 +149,44 @@ Page({
       }
     })
   },
+  
+  testPayment: function (data) {
+    app.Ajax(
+      'Payment',
+      'POST',
+      'Payment',
+       data ,
+      function (json) {
+        console.log(json);
+        if (json.success) {
+          //wx.setStorageSync('token', json.data.sessionId);
+          console.log(json.data);
+          wx.requestPayment({
+            'timeStamp': json.data.timeStamp,
+            'nonceStr': json.data.nonceStr,
+            'package': json.data.package,
+            'signType': 'MD5',
+            'paySign': json.data.paySign,
+            'success': function (res) {
+              console.log("ok");
+              console.log(res);
+              wx.navigateBack({
+                url: '../index/index'
+              })
+            },
+            'fail': function (res) {
+              console.log("error");
+              console.log(res);
+            }
+          })
+        } else {
+
+          console.log(json.msg.code);
+          console.log(json.msg.msg);
+        }
+
+      }
+    );
+  }
  
 })
