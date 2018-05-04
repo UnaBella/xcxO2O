@@ -42,6 +42,7 @@
 
 .second_content_detail .inputNum input{
   width: 35rpx;
+  text-align:center;
 }
 .minus-btn,.plus-btn{
   font-size: 30rpx;
