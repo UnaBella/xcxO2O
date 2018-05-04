@@ -135,13 +135,13 @@ Page({
       function (json) {
         // console.log(json);
         if (json.success) {
-          //wx.setStorageSync('token', json.data.sessionId);
-          console.log(json.data);
-          // getNowFormatDate();
-          console.log(that.getNowFormatDate());
-          // var scanTime = wx.getStorageSync('scanTime') || []
-          // scanTime.unshift(that.getNowFormatDate())
-          // wx.setStorageSync('scanTime', scanTime)
+          
+          
+          var number = json.data.product;
+          var date = that.getNowFormatDate();
+          var buyOrder = wx.getStorageSync('buyOrder')||[]
+          buyOrder.unshift({ number,date})
+          wx.setStorageSync('buyOrder', buyOrder)
           wx.requestPayment({
             'timeStamp': json.data.timeStamp,
             'nonceStr': json.data.nonceStr,
@@ -169,9 +169,10 @@ Page({
       }
     );
   },
+  //当前时间格式
   getNowFormatDate:function() {
     var date = new Date();
-    var seperator1 = ":";
+    var seperator1 = ".";
     var seperator2 = ":";
     var month = date.getMonth() + 1;
     var strDate = date.getDate();
@@ -185,6 +186,23 @@ Page({
     + " " + date.getHours() + seperator2 + date.getMinutes()
     + seperator2 + date.getSeconds();
     return currentdate;
+  },
+  //时间戳转化时间格式
+  formatDateTime: function (timeStamp){   
+    var date = new Date();  
+    date.setTime(timeStamp * 1000);  
+    var y = date.getFullYear();      
+    var m = date.getMonth() + 1;      
+    m = m < 10 ? ('0' + m) : m;      
+    var d = date.getDate();      
+    d = d < 10 ? ('0' + d) : d;      
+    var h = date.getHours();    
+    h = h < 10 ? ('0' + h) : h;    
+    var minute = date.getMinutes();    
+    var second = date.getSeconds();    
+    minute = minute < 10 ? ('0' + minute) : minute;      
+    second = second < 10 ? ('0' + second) : second;     
+    return y + '.' + m + '.' + d + ' ' + h + ':' + minute + ':' + second;      
   }
  
 })

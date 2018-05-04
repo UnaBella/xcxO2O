@@ -4,7 +4,7 @@
   <view class="second_content">
   
     <swiper indicator-dots="true"
-  autoplay="true" interval="5000" duration="1000">
+  autoplay="true" interval="5000" duration="500">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
           <image src="{{item}}" class="slide-image" width="750" height="750"/>

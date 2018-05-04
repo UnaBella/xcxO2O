@@ -8,20 +8,20 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     codeRecordList:[
-      { number: '12333445566', date: '2018.5.15 15:40'},
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' },
-      { number: '12333445566', date: '2018.5.15 15:40' }
+      // { number: '12333445566', date: '2018.5.15 15:40'},
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' },
+      // { number: '12333445566', date: '2018.5.15 15:40' }
     ]
   },
-
+  
   toSweepOrder: function (){
     wx.scanCode({
       success: (res) => {
@@ -64,5 +64,14 @@ Page({
     }else{
       wx.setStorageSync('shop', scene);
     }
+
+
+    
   }, 
+  onShow:function(){
+    var buyOrder = wx.getStorageSync('buyOrder') || []
+    this.setData({
+      codeRecordList: buyOrder
+    })
+  }
 })
