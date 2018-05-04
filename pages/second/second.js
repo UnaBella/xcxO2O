@@ -32,7 +32,7 @@ Page({
       second_content_detail_price : ttt.price,
       stock: ttt.stock,
       id:ttt.id,
-      imgUrls : [ttt.slt]
+      imgUrls : ttt.slt
     })
   },
   
