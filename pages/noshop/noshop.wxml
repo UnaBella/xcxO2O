@@ -1,6 +1,49 @@
 <!--index.wxml-->
-<view class="container">
+<!-- <view class="container">
   <view class="button-group" bindtap="scanCodeShop">
     <button hover-class="none" type="primary" class="login-out" >点击扫码</button>
   </view>
-</view>
+</view> -->
+
+  <view class="index_wrap">
+    <view class="header_card">
+      <view class="header_card_bgc">
+        <view class="header_card_image" bindtap="scanCodeShop">
+          <image src='../../static/img/地图底板@3x.png' ></image>
+        </view>
+        <view class="header_card_cont" bindtap="scanCodeShop">
+          <image src='../../static/img/地图-icon@3x.png' ></image>请扫描门店二维码
+          <image src='../../static/img/流连logo@3x.png' class='logo'></image>
+        </view>
+        
+      </view>
+        
+    </view>
+
+    <view class="code_record">
+      <view class="code_record_wrap">
+        <view class="code_record_title">
+          <em></em>购物指南
+        </view>
+        <view class="code_record_content">
+          <view class='nu1 nu'>
+            <image src='../../static/img/购物指南1@3x.png'></image>
+            1、扫描门店二维码定位当前门店
+          </view>
+          <view class='nu'>
+            <image src='../../static/img/购物指南2@3x.png'></image>
+            2、扫描商品码加入购物车
+          </view>
+          <view class='nu'>
+            <image src='../../static/img/购物指南3@3x.png'></image>
+            3、支付完成购买
+          </view>
+          <view class='btn'>
+          <image src='../../static/img/扫码icon.png' bindtap="scanCodeShop"></image>
+          </view>
+        </view>
+        
+      </view>
+        
+    </view>
+  </view>

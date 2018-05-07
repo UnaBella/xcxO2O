@@ -35,10 +35,16 @@ Page({
       function (json) {
         if (json.success) {
           var ttt = json.data;
-          // console.log('ttt',ttt)
+          console.log('ttt',ttt)
           wx.navigateTo({
             url: '../second/second?goodsMes=' + JSON.stringify(ttt)
           })
+          console.log("以下已经扫码到商品页了")
+          var number = json.data.goodsname;
+          var date = app.getNowFormatDate();
+          var buyOrder = wx.getStorageSync('buyOrder') || []
+          buyOrder.unshift({ number, date })
+          wx.setStorageSync('buyOrder', buyOrder)
         } else {
           console.log('请重新扫商品码');
         }

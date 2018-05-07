@@ -3,12 +3,8 @@
    "pages/noshop/noshop",
     "pages/index/index",
     "pages/second/second",
-    "pages/myOrder/myOrder",
+    "pages/myOrder/myOrder"
     
-    
-   
-    "pages/logs/logs",
-    "pages/show/show"
     
   ],
   "window":{

@@ -19,10 +19,10 @@
       <view class=" mt20 clearfix ">
         <view class='fl second_content_detail_num'>数量:</view>
         <view class='fr clearfix inputNum'>
-          <view class="minus-btn fl mr25" bindtap='minus'>-</view>
+          <view class=" fl mr25 {{buyNum==1?'numBtnGrey':'minus-btn'}}" bindtap='minus'>-</view>
           <!-- <view class='fl num' name="radio2">2</view> -->
-          <input class="fl num " name="inputNum" value='{{bugNum}}' disabled />
-          <view class="plus-btn fl ml25" bindtap='plus'>+</view>
+          <input class="fl num " name="inputNum" value='{{buyNum}}' disabled />
+          <view class=" fl ml25 {{yesMax==true?'numBtnGrey':'plus-btn'}}" bindtap='plus'>+</view>
         </view>
       </view>
       

@@ -41,18 +41,27 @@
 }
 
 .second_content_detail .inputNum input{
-  width: 35rpx;
+  width: 43rpx;
   text-align:center;
 }
 .minus-btn,.plus-btn{
   font-size: 30rpx;
     padding: 0rpx 14rpx 4rpx; 
-   color:#b9b9b9;
+    color:#fff;
+   background: #70cf6a;
+   border-radius: 26rpx; 
+   position: auto;
+   margin-top:4rpx;
+
+}
+.numBtnGrey{
+  color:#b9b9b9; 
+  font-size: 30rpx;
+  padding: 0rpx 14rpx 4rpx;
    background: #d8d8d8;
    border-radius: 26rpx; 
    position: auto;
-   margin-top:3rpx;
-
+   margin-top:4rpx;
 }
 /* .second_content_detail radio{ transform:scale(.6)  } */
 

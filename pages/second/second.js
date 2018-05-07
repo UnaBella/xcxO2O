@@ -3,7 +3,10 @@ const util = require('../../utils/util.js')
 const app = getApp()
 Page({
   data: {
-    bugNum:1,
+    buyNum:1,
+    maxNum:null,
+    yesMax:false,
+    minNum:null,
     imgUrls: [
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
@@ -32,24 +35,30 @@ Page({
       second_content_detail_price : ttt.price,
       stock: ttt.stock,
       id:ttt.id,
-      imgUrls : ttt.slt
+      imgUrls : ttt.slt,
+      maxNum:ttt.stock
     })
   },
   
   minus: function(e){
-    if (this.data.bugNum > 1) {
-      this.data.bugNum -= 1;
+    if (this.data.buyNum > 1) {
+      this.data.buyNum -= 1;
       this.setData({
-        bugNum: this.data.bugNum
+        buyNum: this.data.buyNum
       })
     }
   },
   plus: function(){
-    this.data.bugNum
-    this.data.bugNum+=1;
-    this.setData({
-      bugNum: this.data.bugNum
-    })
+    if (this.data.buyNum<this.data.maxNum){
+      this.data.buyNum += 1;
+      this.setData({
+        buyNum: this.data.buyNum
+      })
+    } else {
+      this.setData({
+        yesMax: true
+      })
+    }
   },
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value)
@@ -68,7 +77,16 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    this.toSuccessBuy(e.detail.value);
+    if (e.detail.value.radio==1){
+      this.toSuccessBuy(e.detail.value);
+    }else{
+      var ccc = e.detail.value;
+      if (ccc.inputName && ccc.inputIdCard && ccc.inputPerson && ccc.inputPhone && ccc.inputAddress){
+        this.toSuccessBuy(e.detail.value);
+      }else{
+        console.log("请添必填项")
+      }
+    }
   },
   formReset: function (e) {
     console.log('form发生了reset事件，携带数据为：', e.detail.value)
@@ -137,11 +155,11 @@ Page({
         if (json.success) {
           
           
-          var number = json.data.product;
-          var date = that.getNowFormatDate();
-          var buyOrder = wx.getStorageSync('buyOrder')||[]
-          buyOrder.unshift({ number,date})
-          wx.setStorageSync('buyOrder', buyOrder)
+          // var number = json.data.product;
+          // var date = that.getNowFormatDate();
+          // var buyOrder = wx.getStorageSync('buyOrder')||[]
+          // buyOrder.unshift({ number,date})
+          // wx.setStorageSync('buyOrder', buyOrder)
           wx.requestPayment({
             'timeStamp': json.data.timeStamp,
             'nonceStr': json.data.nonceStr,
@@ -169,40 +187,6 @@ Page({
       }
     );
   },
-  //当前时间格式
-  getNowFormatDate:function() {
-    var date = new Date();
-    var seperator1 = ".";
-    var seperator2 = ":";
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if(month >= 1 && month <= 9) {
-      month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-      strDate = "0" + strDate;
-    }
-    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
-    + " " + date.getHours() + seperator2 + date.getMinutes()
-    + seperator2 + date.getSeconds();
-    return currentdate;
-  },
-  //时间戳转化时间格式
-  formatDateTime: function (timeStamp){   
-    var date = new Date();  
-    date.setTime(timeStamp * 1000);  
-    var y = date.getFullYear();      
-    var m = date.getMonth() + 1;      
-    m = m < 10 ? ('0' + m) : m;      
-    var d = date.getDate();      
-    d = d < 10 ? ('0' + d) : d;      
-    var h = date.getHours();    
-    h = h < 10 ? ('0' + h) : h;    
-    var minute = date.getMinutes();    
-    var second = date.getSeconds();    
-    minute = minute < 10 ? ('0' + minute) : minute;      
-    second = second < 10 ? ('0' + second) : second;     
-    return y + '.' + m + '.' + d + ' ' + h + ':' + minute + ':' + second;      
-  }
+  
  
 })

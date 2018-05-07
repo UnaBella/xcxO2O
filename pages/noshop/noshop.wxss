@@ -1,30 +1,111 @@
-page{
-  background-color:#ebebeb;
+/**index.wxss**/
+.index_wrap{
+  width: 750rpx;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+ .header_card{
+  width: 100%;
+  height: 36%;
+} 
+.header_card_bgc{
+  width: 120%;
+  height: 360rpx;
+  position: relative;
+  top: 0;
+  left: -10%;
+  background-color: #000000;
+  border-bottom-right-radius:180rpx;
+  border-bottom-left-radius:180rpx;
+}
+.header_card_image{
+  width: 78%;
+  height: 400rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.header_card_image image{
+  width: 100%;
+  height: 100%; 
+}
+.header_card_cont{
+  width: 400rpx;
+  position: absolute;
+  top: 200rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.header_card_cont image{
+  width: 60rpx;
+  height: 68rpx;
+}
+.header_card_cont image.logo{
+  width: 80rpx;
+  height: 68rpx;
+position: absolute;
+top:120rpx;
+left: 420rpx;
 }
 
-
-.button-group{
-  width: 345rpx;
-  height : 80rpx;
-  line-height: 80rpx;
-  font-size: 40rpx;
-  margin: 150rpx auto;
+.code_record{
+  width: 100%;
+  height: 64%;
 }
-
-.invite-code{
+.code_record_wrap{
+  width: 80%;
+  height: 90%;
+  margin: 0 auto;
+  background: #fff;
+   padding: 5%; 
+}
+ .code_record_title{
+  width: 100%;
+  font-size: 32rpx;
+  line-height: 1;
+  color: #777;
+} 
+ .code_record_title em{
+  padding: 1rpx 6rpx;
+  background: #018afe;
+  margin-right: 10rpx;
+} 
+.code_record_content{
+  height: 90%;
+  margin-top: 20rpx;
+  overflow-y: auto;
+}
+.code_record_content{
+  font-size: 30rpx;
+  color: #888;
+}
+.code_record_content .nu1{
+  color:#55bafa;
+  }
+.code_record_content .nu{
+  display: flex;
+  align-items: center;
+  margin-top: 26rpx;
+}
+.code_record_content .nu image{
+  width: 66rpx;
+  height: 68rpx;
   margin-right: 20rpx;
 }
-
-.hover-red{
-  background-color: #5b5b5b;
+.code_record_content .btn{
+  margin-top: 60rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.login-out{
-  height: 100%;
-  line-height: 80rpx;
-  font-size: 36rpx;
-}
-
-button[type="primary"]{
-  background-color: #ac162c;
+.code_record_content .btn image{
+  width: 230rpx;
+  height: 230rpx;
 }
