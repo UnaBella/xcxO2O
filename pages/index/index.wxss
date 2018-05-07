@@ -19,6 +19,16 @@
   border-bottom-right-radius:180rpx;
   border-bottom-left-radius:180rpx;
 }
+.header_card_bgc .shopName{
+  text-align: center;
+  position: absolute;
+  top: 200rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: #fff;
+
+}
 .header_card_image{
   width: 78%;
   height: 440rpx;

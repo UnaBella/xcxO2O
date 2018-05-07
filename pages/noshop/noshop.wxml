@@ -9,11 +9,11 @@
     <view class="header_card">
       <view class="header_card_bgc">
         <view class="header_card_image" bindtap="scanCodeShop">
-          <image src='../../static/img/地图底板@3x.png' ></image>
+          <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/地图底板@3x.png' ></image>
         </view>
         <view class="header_card_cont" bindtap="scanCodeShop">
-          <image src='../../static/img/地图-icon@3x.png' ></image>请扫描门店二维码
-          <image src='../../static/img/流连logo@3x.png' class='logo'></image>
+          <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/地图-icon@3x.png' ></image>请扫描门店二维码
+          <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/流连logo@3x.png' class='logo'></image>
         </view>
         
       </view>
@@ -27,19 +27,19 @@
         </view>
         <view class="code_record_content">
           <view class='nu1 nu'>
-            <image src='../../static/img/购物指南1@3x.png'></image>
+            <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/购物指南1@3x.png'></image>
             1、扫描门店二维码定位当前门店
           </view>
           <view class='nu'>
-            <image src='../../static/img/购物指南2@3x.png'></image>
-            2、扫描商品码加入购物车
+            <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/购物指南2@3x.png'></image>
+            2、扫描条码查看商品
           </view>
           <view class='nu'>
-            <image src='../../static/img/购物指南3@3x.png'></image>
+            <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/购物指南3@3x.png'></image>
             3、支付完成购买
           </view>
           <view class='btn'>
-          <image src='../../static/img/扫码icon.png' bindtap="scanCodeShop"></image>
+          <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/扫码icon.png' bindtap="scanCodeShop"></image>
           </view>
         </view>
         

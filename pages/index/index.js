@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    shopName:'这里是店铺名称',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -63,6 +64,7 @@ Page({
   },
 
   onLoad: function (options) {
+    var that = this;
     var scene = decodeURIComponent(options.shop);
     // console.log(scene);
     if (scene ==='undefined'){
@@ -70,7 +72,24 @@ Page({
     }else{
       wx.setStorageSync('shop', scene);
     }
+    app.Ajax(
+      'Users',
+      'POST',
+      'GetShopName',
+      { shop: wx.getStorageSync('shop') },
+      function (json) {
+        console.log(json);
+        if (json.success) {
+          that.setData({
+            shopName: json.data
+          })
+          
+        } else {
+          console.log('店铺获取错误')
+        }
 
+      }
+    );
 
     
   }, 
