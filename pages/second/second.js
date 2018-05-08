@@ -3,25 +3,24 @@ const util = require('../../utils/util.js')
 const app = getApp()
 Page({
   data: {
+    payTime:1,
     buyNum:1,
     maxNum:null,
     yesMax:false,
     minNum:null,
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    second_content_detail_title:'资生堂 UNO 吾诺 男士洗面奶',
-    second_content_detail_price:'10000.00',
+    imgUrls: [],
+    second_content_detail_title:'',
+    second_content_detail_price:'',
     id:'',
     stock:'',
     radioItems: [
-      { value: '1', name: '现场取货', checked: 'true'},
-      { value: '2', name: '快递收货' },
+      { value: '1', name: '现场取货',disabled:'true' },
+      { value: '2', name: '快递收货', checked: 'true' },
     ],
-    expressageType: '1',
-
+    expressageType: '2',
+    inputName: '',
+    inputIdCard:'',
+    
     inputPerson: '',
     inputAddress: '',
     inputPhone: '',
@@ -38,6 +37,16 @@ Page({
       imgUrls : ttt.slt,
       maxNum:ttt.stock
     })
+    if (wx.getStorageSync('inputName')){
+      this.setData({
+        inputName: wx.getStorageSync('inputName'),
+        inputIdCard: wx.getStorageSync('inputIdCard'),
+        inputPerson: wx.getStorageSync('inputPerson'),
+        inputAddress: wx.getStorageSync('inputAddress'),
+        inputPhone: wx.getStorageSync('inputPhone'),
+      })
+    }
+    
   },
   
   minus: function(e){
@@ -82,9 +91,21 @@ Page({
     }else{
       var ccc = e.detail.value;
       if (ccc.inputName && ccc.inputIdCard && ccc.inputPerson && ccc.inputPhone && ccc.inputAddress){
+        
+          wx.setStorageSync('inputName', ccc.inputName),
+          wx.setStorageSync('inputIdCard', ccc.inputIdCard),
+          wx.setStorageSync('inputPerson', ccc.inputPerson),
+          wx.setStorageSync('inputAddress', ccc.inputAddress),
+          wx.setStorageSync('inputPhone', ccc.inputPhone),
         this.toSuccessBuy(e.detail.value);
       }else{
         console.log("请添必填项")
+        wx.showModal({
+          title: "注意",
+          content: "请输入完整信息",
+          showCancel: false,
+          confirmText: "确定"
+        })
       }
     }
   },
@@ -151,10 +172,10 @@ Page({
       'Payment',
        data ,
       function (json) {
-        // console.log(json);
+        // console.log('zhifu',json);
         if (json.success) {
           
-          
+          // that.finishPaySend(json.data.billId);
           // var number = json.data.product;
           // var date = that.getNowFormatDate();
           // var buyOrder = wx.getStorageSync('buyOrder')||[]
@@ -169,24 +190,56 @@ Page({
             'success': function (res) {
               console.log("ok");
               console.log(res);
+              that.finishPaySend(json.data.billId);
               wx.navigateBack({
                 url: '../index/index'
               })
             },
             'fail': function (res) {
-              console.log("error");
-              console.log(res);
+              wx.showModal({
+                title: "支付失败",
+                content: "请重新下单",
+                showCancel: false,
+                confirmText: "确定"
+              })
             }
           })
         } else {
-
-          console.log(json.msg.code);
-          console.log(json.msg.msg);
+          wx.showModal({
+            title: "支付失败",
+            content: "请重新下单",
+            showCancel: false,
+            confirmText: "确定"
+          })
         }
 
       }
     );
   },
-  
+  finishPaySend:function(billId){
+      console.log(billId);
+      var that = this;
+      app.Ajax(
+        'Payment',
+        'POST',
+        'SendPaymentMsg',
+        { orderId: billId},
+        function (json) {
+          if (json.success) {
+            console.log('yesssss')
+          } else {
+            console.log(that.data.payTime)
+            if (that.data.payTime<3){
+              var curPayTime = that.data.payTime+=1
+              that.setData({
+                payTime: curPayTime
+              })
+              setTimeout(
+                that.finishPaySend
+                , 5000, billId)
+            }
+          }
+        })
+  }
  
 })

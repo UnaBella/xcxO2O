@@ -3,24 +3,12 @@ const app = getApp()
 Page({
   data: {
     orderList: [
-      {
-        billId: 327710274213934286,
-        imgUrl: 'http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/首页-扫码下单色块@3x.png',
-        createTime: '2018.4.23 23:05',
-        product: '资生堂男士滋润乳100ml 补水补水补水补水保湿',
-      },
-      {
-        billId: 327710274213934286,
-        imgUrl: 'http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/首页-扫码下单色块@3x.png',
-        createTime: '2018.4.23 23:05',
-        product: '资生堂男士滋润乳100ml 补水保湿',
-      },
-      {
-        billId: 327710274213934286,
-        imgUrl: 'http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/首页-扫码下单色块@3x.png',
-        createTime: '2018.4.23 23:05',
-        product: '资生堂男士滋润乳100ml 补水保湿',
-      }
+      // {
+      //   billId: 327710274213934286,
+      //   imgUrl: 'http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/首页-扫码下单色块@3x.png',
+      //   createTime: '2018.4.23 23:05',
+      //   product: '资生堂男士滋润乳100ml 补水补水补水补水保湿',
+      // }
     ]
   },
   onShow:function(){

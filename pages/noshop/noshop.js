@@ -18,6 +18,12 @@ Page({
           })
           // console.log('kaka')
         }else{
+          wx.showModal({
+            title: "哎呀",
+            content: "请重新扫描门店二维码",
+            showCancel: false,
+            confirmText: "确定"
+          })
           console.log('重新扫码')
         }
       },

@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    shopName:'这里是店铺名称',
+    shopName:'',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -48,6 +48,12 @@ Page({
           wx.setStorageSync('buyOrder', buyOrder)
         } else {
           console.log('请重新扫商品码');
+          wx.showModal({
+            title: "注意",
+            content: "请重新扫商品码",
+            showCancel: false,
+            confirmText: "确定"
+          })
         }
       }
     );

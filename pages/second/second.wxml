@@ -30,7 +30,7 @@
         <view class="second_content_detail_way">
           <radio-group bindchange="radioChange" name="radio">
           <label class="radio_label mr25" wx:for="{{radioItems}}" wx:key="{{item.value}}">
-              <radio value="{{item.value}}" checked="{{item.checked}}"/>
+              <radio value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
               <text class="text">{{item.name}}</text>
           </label>
         </radio-group>
@@ -42,7 +42,7 @@
             <i class="fl">真实姓名</i>
             <em class="fl ml05">*</em>
           </label>
-          <input class="fl ml25 text1" name="inputName" 
+          <input class="fl ml25 text1" name="inputName" value="{{inputName}}
           placeholder-style="color:#b9b9b9"
           placeholder="清关必备，请输入真实姓名" />
         </view>
@@ -51,7 +51,7 @@
             <i class="fl">身份证</i>
             <em class="fl ml05">*</em>
           </label>
-          <input class="fl ml25 text1" name="inputIdCard" type="idcard"
+          <input class="fl ml25 text1" name="inputIdCard" type="idcard" value="{{inputIdCard}}
           placeholder-style="color:#b9b9b9"
           placeholder="请输入身份证号" />
         </view>
