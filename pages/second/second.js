@@ -3,6 +3,7 @@ const util = require('../../utils/util.js')
 const app = getApp()
 Page({
   data: {
+    paddingBottom:"2",
     payTime:1,
     buyNum:1,
     maxNum:null,
@@ -240,6 +241,17 @@ Page({
             }
           }
         })
+  },
+  bindfocus:function(e){
+    console.log('e',e)
+    this.setData({
+      paddingBottom:e.detail.height+200
+    })
+  },
+  bindblur:function(e){
+    // this.setData({
+    //   paddingBottom: 2
+    // })
   }
  
 })

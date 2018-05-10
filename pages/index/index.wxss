@@ -15,7 +15,7 @@
   position: relative;
   top: 0;
   left: -10%;
-  background-color: #000000;
+  background-color: #018afe;
   border-bottom-right-radius:180rpx;
   border-bottom-left-radius:180rpx;
 }
