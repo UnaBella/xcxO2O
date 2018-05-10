@@ -55,9 +55,7 @@
           placeholder-style="color:#b9b9b9"
           placeholder="请输入身份证号" />
         </view>
-        <view class="mt20">
-          <button type="primary" bindtap="getAddress">获取地址</button>
-        </view>
+        
         <view class="mt20 clearfix inputPerson">
           <label class='fl'>
             <i class="fl">收货人</i>
@@ -85,9 +83,13 @@
           placeholder-style="color:#b9b9b9"
           placeholder="请输入地址" />
         </view>
-        
       </view>
+      <view class="mt20 getAddress" bindtap="getAddress">
+      <image class="mt20" src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/%E8%8E%B7%E5%8F%96%E5%9C%B0%E5%9D%80@2x.png'></image>
+          <!-- <button type="primary" >获取地址</button> -->
+        </view>
       <view class="mt20">
+      
         <button type="primary" formType="submit">立即购买</button>
       </view>
        </form>

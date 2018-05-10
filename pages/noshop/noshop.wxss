@@ -7,11 +7,11 @@
 }
  .header_card{
   width: 100%;
-  height: 36%;
+  height: 32%;
 } 
 .header_card_bgc{
   width: 120%;
-  height: 360rpx;
+  height: 280rpx;
   position: relative;
   top: 0;
   left: -10%;
@@ -21,7 +21,7 @@
 }
 .header_card_image{
   width: 78%;
-  height: 400rpx;
+  height: 330rpx;
   position: absolute;
   top: 20rpx;
   left: 0;
@@ -35,7 +35,7 @@
 .header_card_cont{
   width: 400rpx;
   position: absolute;
-  top: 200rpx;
+  top: 150rpx;
   left: 0;
   right: 0;
   margin: auto;
@@ -50,13 +50,13 @@
   width: 80rpx;
   height: 68rpx;
 position: absolute;
-top:120rpx;
+top:100rpx;
 left: 420rpx;
 }
 
 .code_record{
   width: 100%;
-  height: 64%;
+  height: 68%;
 }
 .code_record_wrap{
   width: 80%;

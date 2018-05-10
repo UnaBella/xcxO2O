@@ -1,0 +1,34 @@
+
+  <view class="index_wrap">
+    <view class="header_card">
+      <view class="header_card_bgc">
+        <view class="header_card_image" bindtap="toSweepOrder">
+          <image src='http://ecc-product.oss-cn-beijing.aliyuncs.com/xcx/首页-扫码下单色块@3x.png' ></image>
+        </view>
+        <view class='shopName'>{{shopName}}</view>
+        <!-- <view class="header_card_click">
+          <view class="header_card_click_fl fl" >
+          </view>
+          <view class="header_card_click_fr fr" bindtap="toScan">
+          </view>
+        </view> -->
+      </view>
+        
+    </view>
+
+    <view class="code_record">
+      <view class="code_record_wrap">
+        <view class="code_record_title">
+          <em></em>扫码记录
+        </view>
+        <view class="code_record_content">
+          <view wx:for="{{codeRecordList}}" class="code_record_content_li">
+            <view class="code_record_li_num fl">{{item.number}}</view>
+            <view class="code_record_li_date fr">{{item.date}}</view>
+          </view>  
+        </view>
+        
+      </view>
+        
+    </view>
+  </view>

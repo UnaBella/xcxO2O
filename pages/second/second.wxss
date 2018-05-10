@@ -93,4 +93,14 @@
   font-size: 30rpx; 
   color:#b9b9b9; 
 }
+.getAddress {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+}
+.getAddress image{
+  width: 50%;
+  height: 50%;
+}
 

@@ -3,15 +3,15 @@
   width: 750rpx;
   height: 100%;
   overflow: hidden;
-  background-color: #efeff4;
+  background-color: #fff;
 }
  .header_card{
   width: 100%;
-  height: 45%;
+  height: 32%;
 } 
 .header_card_bgc{
   width: 120%;
-  height: 400rpx;
+  height: 280rpx;
   position: relative;
   top: 0;
   left: -10%;
@@ -19,19 +19,9 @@
   border-bottom-right-radius:180rpx;
   border-bottom-left-radius:180rpx;
 }
-.header_card_bgc .shopName{
-  text-align: center;
-  position: absolute;
-  top: 200rpx;
-  left: 0;
-  right: 0;
-  margin: auto;
-  color: #fff;
-
-}
 .header_card_image{
   width: 78%;
-  height: 440rpx;
+  height: 330rpx;
   position: absolute;
   top: 20rpx;
   left: 0;
@@ -42,35 +32,35 @@
   width: 100%;
   height: 100%; 
 }
-.header_card_click{
-  width: 72%;
-  height: 50rpx;
+.header_card_cont{
+  width: 400rpx;
   position: absolute;
-  top: 380rpx;
+  top: 150rpx;
   left: 0;
   right: 0;
   margin: auto;
-  /* border: 1px solid red; */
-  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
-.header_card_click_fl{
-  width: 25%;
-  height: 100%;
-  /* border: 1px solid green; */
+.header_card_cont image{
+  width: 60rpx;
+  height: 68rpx;
 }
-.header_card_click_fr{
-  width: 8%;
-  height: 100%;
-  /* border: 1px solid blue; */
+.header_card_cont image.logo{
+  width: 80rpx;
+  height: 68rpx;
+position: absolute;
+top:100rpx;
+left: 420rpx;
 }
 
 .code_record{
   width: 100%;
-  height: 55%;
+  height: 68%;
 }
 .code_record_wrap{
   width: 80%;
-  height: 82%;
+  height: 90%;
   margin: 0 auto;
   background: #fff;
    padding: 5%; 
@@ -79,11 +69,11 @@
   width: 100%;
   font-size: 32rpx;
   line-height: 1;
-  color: #9f9f9f;
+  color: #777;
 } 
  .code_record_title em{
-  padding: 0 5rpx;
-  background: #7391eb;
+  padding: 1rpx 6rpx;
+  background: #018afe;
   margin-right: 10rpx;
 } 
 .code_record_content{
@@ -91,14 +81,31 @@
   margin-top: 20rpx;
   overflow-y: auto;
 }
-.code_record_content_li{
-  color: #9f9f9f;
-  line-height: 60rpx;
-  overflow: hidden;
+.code_record_content{
+  font-size: 30rpx;
+  color: #888;
 }
-.code_record_li_num{
-  font-size: 32rpx;
+.code_record_content .nu1{
+  color:#55bafa;
+  }
+.code_record_content .nu{
+  display: flex;
+  align-items: center;
+  margin-top: 26rpx;
 }
-.code_record_li_date{
-  font-size: 22rpx;
+.code_record_content .nu image{
+  width: 66rpx;
+  height: 68rpx;
+  margin-right: 20rpx;
+}
+.code_record_content .btn{
+  margin-top: 60rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.code_record_content .btn image{
+  width: 230rpx;
+  height: 230rpx;
 }
